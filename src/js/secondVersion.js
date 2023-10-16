@@ -10,26 +10,22 @@ const fetchImages = async () => {
     const response = await axios.get('https://pixabay.com/api/', {
       params: {
         key: '38606414-d1218f221fd8daceb76c83e1a',
-        image_type: 'photo',
         orientation: 'horizontal',
+        category: 'nature',
         per_page: 5,
-        category: 'animals',
       },
     });
     return response.data.hits;
-  } catch (error) {
-    console.log(error);
+  } catch {
+    err => console.log('error', err);
   }
 };
-console.log(fetchImages());
 
 const createMarkup = data => {
   const markup = data
-    .map(
-      el => `<div class="slide"><img src="${el.webformatURL}" alt="" /></div>`
-    )
+    .map(el => `<div class="slide"><img src="${el.webformatURL}"></div>`)
     .join('');
-  slider.insertAdjacentHTML('beforeend', markup);
+  slider.innerHTML = markup;
 };
 
 const createSlider = async () => {
@@ -38,29 +34,31 @@ const createSlider = async () => {
 
   let currentSlide = 0;
   let slides = document.querySelectorAll('.slide');
-  let maxSlide = slides.length;
+  let allSlides = slides.length;
 
   const updateSlide = () => {
     slides.forEach((slide, index) => {
-      slide.style.opacity = index === currentSlide ? 1 : 0;
-      slide.style.visibility = index === currentSlide ? 'visible' : 'hidden';
+      slide.style.transform = `translateX(${index * 100}%)`;
+    });
+  };
+  updateSlide();
+
+  const onNext = () => {
+    currentSlide = (currentSlide + 1) % allSlides;
+    slides.forEach((slide, index) => {
+      slide.style.transform = `translateX(${(index - currentSlide) * 100}%)`;
     });
   };
 
-  const nextPhoto = () => {
-    currentSlide = (currentSlide + 1) % maxSlide;
-    updateSlide();
+  const onBack = () => {
+    currentSlide = currentSlide === 0 ? allSlides - 1 : currentSlide - 1;
+    slides.forEach((slide, index) => {
+      slide.style.transform = `translateX(${(index - currentSlide) * 100}%)`;
+    });
   };
 
-  const prevPhoto = () => {
-    currentSlide = currentSlide === 0 ? maxSlide - 1 : currentSlide - 1;
-    updateSlide();
-  };
-
-  nextBtn.addEventListener('click', nextPhoto);
-  prevBtn.addEventListener('click', prevPhoto);
-
-  updateSlide();
+  nextBtn.addEventListener('click', onNext);
+  prevBtn.addEventListener('click', onBack);
 };
 
 createSlider();

@@ -1,21 +1,21 @@
 {
-  "name": "goit-js-hw-11",
+  "name": "Slider-JS-recruitment-task",
   "version": "2.0.0",
   "description": "",
-  "homepage": "https://astrix1234.github.io/goit-js-hw-11",
+  "homepage": "https://astrix1234.github.io/Slider-JS-recruitment-task",
   "scripts": {
     "start": "parcel src/*.html",
-    "build": "parcel build src/*.html --public-url /goit-js-hw-11/"
+    "build": "parcel build src/*.html --public-url /Slider-JS-recruitment-task/"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Astrix1234/goit-js-hw-11.git"
+    "url": "git+https://github.com/Astrix1234/Slider-JS-recruitment-task.git"
   },
   "keywords": [],
   "author": "Joanna Dobrowolska <dobrowolska.krakow@gmail.com>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Astrix1234/goit-js-hw-11/issues"
+    "url": "https://github.com/Astrix1234/Slider-JS-recruitment-task/issues"
   },
   "dependencies": {
     "axios": "^1.4.0",
