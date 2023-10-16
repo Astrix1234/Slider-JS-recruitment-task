@@ -1,0 +1,40 @@
+{
+  "name": "goit-js-hw-11",
+  "version": "2.0.0",
+  "description": "",
+  "homepage": "https://astrix1234.github.io/goit-js-hw-11",
+  "scripts": {
+    "start": "parcel src/*.html",
+    "build": "parcel build src/*.html --public-url /goit-js-hw-11/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Astrix1234/goit-js-hw-11.git"
+  },
+  "keywords": [],
+  "author": "Joanna Dobrowolska <dobrowolska.krakow@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Astrix1234/goit-js-hw-11/issues"
+  },
+  "dependencies": {
+    "axios": "^1.4.0",
+    "dotenv": "^16.3.1",
+    "modern-normalize": "^1.1.0",
+    "node-fetch": "^3.3.2",
+    "notiflix": "^3.2.6",
+    "simplelightbox": "^2.14.1",
+    "slim-select": "^2.6.0"
+  },
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.6.0",
+    "buffer": "^6.0.3",
+    "eslint": "^8.46.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.28.0",
+    "parcel": "^2.6.0",
+    "parcel-reporter-clean-dist": "^1.0.4",
+    "posthtml-include": "^1.7.4"
+  },
+  "browserslist": "> 0.5%, last 2 versions, not dead"
+}
